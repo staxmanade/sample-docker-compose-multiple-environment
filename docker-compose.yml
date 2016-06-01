@@ -1,0 +1,17 @@
+version: '2'
+
+services:
+  web:
+    build: ./app/
+    environment:
+      - NODE_ENV=${NODE_ENV}
+      - PORT=${PORT}
+      - VIRTUAL_HOST=${VIRTUAL_HOST}
+      - VIRTUAL_PORT=${PORT}
+    ports:
+      - "127.0.0.1:${PORT}:80"
+
+networks:
+  default:
+    external:
+      name: service-tier
